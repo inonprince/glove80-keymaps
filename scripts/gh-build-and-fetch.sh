@@ -9,6 +9,7 @@ Behavior:
   - If a run already exists for the same target commit SHA, it reuses it.
   - Otherwise it triggers a new workflow_dispatch run.
   - It waits for completion, downloads artifacts on success, or prints failed logs.
+  - Output is saved as glove80-<short-sha>.uf2 and skips if already present.
 
 Usage:
   scripts/gh-build-and-fetch.sh [options]
@@ -33,16 +34,53 @@ is_sha_ref() {
   [[ "$1" =~ ^[0-9a-fA-F]{7,40}$ ]]
 }
 
+short_sha() {
+  local sha="$1"
+  printf '%s' "${sha:0:8}"
+}
+
+artifact_path_for_sha() {
+  local sha="$1"
+  printf '%s/glove80-%s.uf2' "$out_dir" "$(short_sha "$sha")"
+}
+
 download_artifacts() {
   local run_id="$1"
+  local target_sha="$2"
+  local output_path tmp_dir downloaded_uf2
+
+  output_path="$(artifact_path_for_sha "$target_sha")"
   mkdir -p "$out_dir"
-  if gh run download "$run_id" --repo "$repo" --name glove80.uf2 --dir "$out_dir"; then
-    echo "Downloaded artifact 'glove80.uf2' into: $out_dir"
+
+  if [[ -e "$output_path" ]]; then
+    echo "Artifact already exists for commit $(short_sha "$target_sha"): $output_path"
+    echo "Nothing to do."
+    return 0
+  fi
+
+  tmp_dir="$(mktemp -d "${out_dir%/}/.gh-run-${run_id}-XXXXXX")"
+
+  if gh run download "$run_id" --repo "$repo" --name glove80.uf2 --dir "$tmp_dir"; then
+    :
   else
     echo "Named artifact not found, downloading all artifacts..."
-    gh run download "$run_id" --repo "$repo" --dir "$out_dir"
-    echo "Downloaded artifacts into: $out_dir"
+    gh run download "$run_id" --repo "$repo" --dir "$tmp_dir"
   fi
+
+  downloaded_uf2="$(find "$tmp_dir" -type f -name 'glove80.uf2' -print -quit)"
+  if [[ -z "$downloaded_uf2" ]]; then
+    downloaded_uf2="$(find "$tmp_dir" -type f -name '*.uf2' -print -quit)"
+  fi
+
+  if [[ -z "$downloaded_uf2" ]]; then
+    echo "No .uf2 artifact file found in downloaded artifacts." >&2
+    rm -rf "$tmp_dir"
+    return 1
+  fi
+
+  mv "$downloaded_uf2" "$output_path"
+  rm -rf "$tmp_dir"
+  echo "Saved artifact: $output_path"
 }
 
 print_failed_logs() {
@@ -70,7 +108,7 @@ process_run() {
 
   conclusion="$(gh run view "$run_id" --repo "$repo" --json conclusion --jq '.conclusion // ""')"
   if [[ "$conclusion" == "success" ]]; then
-    download_artifacts "$run_id"
+    download_artifacts "$run_id" "$target_sha"
     return 0
   fi
 
@@ -140,6 +178,13 @@ target_sha="$(gh api "repos/$repo/commits/$ref" --jq '.sha')"
 if [[ -z "$target_sha" || "$target_sha" == "null" ]]; then
   echo "Could not resolve target commit SHA for ref '$ref' in '$repo'." >&2
   exit 1
+fi
+
+existing_artifact_path="$(artifact_path_for_sha "$target_sha")"
+if [[ -e "$existing_artifact_path" ]]; then
+  echo "Artifact already exists for commit $(short_sha "$target_sha"): $existing_artifact_path"
+  echo "Nothing to do."
+  exit 0
 fi
 
 run_list_args=(--repo "$repo" --workflow "$workflow")
