@@ -1,0 +1,45 @@
+name: Build Glove80 Firmware
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # Corresponds to the MoErgo Layout Editor firmware train:
+      # community.pr36.per-key-rgb+20260115070151
+      MOERGO_ZMK_REF: 512f756b3be6a124424c1de295cfa68d86038139
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - uses: actions/checkout@v4
+        with:
+          repository: moergo-sc/zmk
+          ref: ${{ env.MOERGO_ZMK_REF }}
+          path: src
+
+      - uses: cachix/install-nix-action@v25
+        with:
+          nix_path: nixpkgs=channel:nixos-22.05
+
+      - uses: cachix/cachix-action@v14
+        with:
+          name: moergo-glove80-zmk-dev
+          skipPush: true
+
+      - name: Build Glove80 combined firmware
+        run: nix-build config -o combined
+
+      - name: Copy result out of nix store
+        run: cp combined/glove80.uf2 glove80.uf2
+
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: glove80.uf2
+          path: glove80.uf2
