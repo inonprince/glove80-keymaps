@@ -39,6 +39,14 @@ Canonical source edit was made in `keymap.json` on layer `Symbol`:
 - `22e685c040c684d41531f881f973df6c96191940`
   - Cursor arrow swap was made only in `config/glove80.keymap` (output-level edit, not canonical-source edit).
 
+### Canonical backports applied
+
+- `ddba918...` backported to canonical sources by setting top-level default OS to macOS in:
+  - `keymap.dtsi.erb`
+  - `keymap.json` (`custom_defined_behaviors`)
+- `22e685c...` backported to canonical source by swapping Cursor layer arrows to `LEFT, DOWN, UP, RIGHT` in:
+  - `keymap.json` (layer `Cursor`)
+
 ## Regeneration (phase 1)
 
 From `glove80-keymaps/`:
@@ -52,4 +60,3 @@ Or full regeneration:
 ```bash
 rake
 ```
-

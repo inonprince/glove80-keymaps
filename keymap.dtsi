@@ -1,5 +1,5 @@
 // NOTE: Use the many #define settings below to customize this keymap!
-#define OPERATING_SYSTEM 'L' // choose 'L'inux, 'M'acOS, or 'W'indows
+#define OPERATING_SYSTEM 'M' // choose 'L'inux, 'M'acOS, or 'W'indows
 #define DIFFICULTY_LEVEL  0  // 0:custom, 1:easy -> 5:hard (see below)
 #define ENABLE_MOUSE_KEYS    // requires HID_POINTING override to "y"
 #define ENFORCE_BILATERAL    // cancels single-handed home row mod+tap
