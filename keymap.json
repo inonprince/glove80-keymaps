@@ -9456,7 +9456,12 @@
         "value": "&kp",
         "params": [
           {
-            "value": "DEL"
+            "value": "LS",
+            "params": [
+              {
+                "value": "TAB"
+              }
+            ]
           }
         ]
       },
@@ -9464,12 +9469,7 @@
         "value": "&kp",
         "params": [
           {
-            "value": "LS",
-            "params": [
-              {
-                "value": "TAB"
-              }
-            ]
+            "value": "DEL"
           }
         ]
       },
@@ -9577,7 +9577,7 @@
         "value": "&kp",
         "params": [
           {
-            "value": "BSPC"
+            "value": "TAB"
           }
         ]
       },
@@ -9585,7 +9585,7 @@
         "value": "&kp",
         "params": [
           {
-            "value": "TAB"
+            "value": "BSPC"
           }
         ]
       },
