@@ -3,6 +3,7 @@
 #define DIFFICULTY_LEVEL  0  // 0:custom, 1:easy -> 5:hard (see below)
 #define ENABLE_MOUSE_KEYS    // requires HID_POINTING override to "y"
 #define ENFORCE_BILATERAL    // cancels single-handed home row mod+tap
+#define RIGHT_HOME_MOD_EXCEPTION_KEYS POS_RH_T5 // Dvorak: allow same-hand HRM+TAB
 //#define SPACE_FORGIVENESS  // allow lingering taps on the space bar
 //#define THUMB_FORGIVENESS  // allow lingering taps on the thumb keys
 //#define SHIFT_FORGIVENESS  // requires v24.08-beta or newer firmware
@@ -803,6 +804,15 @@ behaviors {
                                  56 73                 \
                                 55 72
 
+  #ifndef LEFT_HOME_MOD_EXCEPTION_KEYS
+  #define LEFT_HOME_MOD_EXCEPTION_KEYS
+  #endif
+  #ifndef RIGHT_HOME_MOD_EXCEPTION_KEYS
+  #define RIGHT_HOME_MOD_EXCEPTION_KEYS
+  #endif
+  #define LEFT_HOME_MOD_TRIGGER_KEYS RIGHT_HAND_KEYS LEFT_HOME_MOD_EXCEPTION_KEYS
+  #define RIGHT_HOME_MOD_TRIGGER_KEYS LEFT_HAND_KEYS RIGHT_HOME_MOD_EXCEPTION_KEYS
+
   #define LEFT_PINKY_KEY  KEY_LH_C5R4
   #define LEFT_RINGY_KEY  KEY_LH_C4R4
   #define LEFT_MIDDY_KEY  KEY_LH_C3R4
@@ -884,7 +894,7 @@ behaviors {
   <%= target %><%= target_variant %>: homey_<%= target %><%= target_variant %> {
     compatible = "zmk,behavior-hold-tap";
     flavor = <%= source.upcase %>_HOLDING_TYPE;
-    hold-trigger-key-positions = <<%= PAIRED_HANDS[hand].upcase %>_HAND_KEYS>;
+    hold-trigger-key-positions = <<%= hand.upcase %>_HOME_MOD_TRIGGER_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <<%= source.upcase %>_HOLDING_TIME>;
     quick-tap-ms = <<%= source.upcase %>_REPEAT_DECAY>;
