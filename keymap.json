@@ -5135,7 +5135,7 @@
         "value": "Custom",
         "params": [
           {
-            "value": "&kp KEY_RH_T5"
+            "value": "&mo LAY_RH_T5"
           }
         ]
       },
@@ -5582,7 +5582,7 @@
         "value": "Custom",
         "params": [
           {
-            "value": "&kp KEY_RH_T5"
+            "value": "&mo LAY_RH_T5"
           }
         ]
       },
@@ -6029,7 +6029,7 @@
         "value": "Custom",
         "params": [
           {
-            "value": "&kp KEY_RH_T5"
+            "value": "&mo LAY_RH_T5"
           }
         ]
       },
@@ -6476,7 +6476,7 @@
         "value": "Custom",
         "params": [
           {
-            "value": "&kp KEY_RH_T5"
+            "value": "&mo LAY_RH_T5"
           }
         ]
       },

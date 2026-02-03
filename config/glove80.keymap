@@ -886,7 +886,6 @@
 #define DIFFICULTY_LEVEL  0  // 0:custom, 1:easy -> 5:hard (see below)
 #define ENABLE_MOUSE_KEYS    // requires HID_POINTING override to "y"
 #define ENFORCE_BILATERAL    // cancels single-handed home row mod+tap
-#define RIGHT_HOME_MOD_EXCEPTION_KEYS POS_RH_T5 // Dvorak: allow same-hand HRM+TAB
 //#define SPACE_FORGIVENESS  // allow lingering taps on the space bar
 //#define THUMB_FORGIVENESS  // allow lingering taps on the thumb keys
 //#define SHIFT_FORGIVENESS  // requires v24.08-beta or newer firmware
@@ -2062,15 +2061,6 @@ behaviors {
                                  56 73                 \
                                 55 72
 
-  #ifndef LEFT_HOME_MOD_EXCEPTION_KEYS
-  #define LEFT_HOME_MOD_EXCEPTION_KEYS
-  #endif
-  #ifndef RIGHT_HOME_MOD_EXCEPTION_KEYS
-  #define RIGHT_HOME_MOD_EXCEPTION_KEYS
-  #endif
-  #define LEFT_HOME_MOD_TRIGGER_KEYS RIGHT_HAND_KEYS LEFT_HOME_MOD_EXCEPTION_KEYS
-  #define RIGHT_HOME_MOD_TRIGGER_KEYS LEFT_HAND_KEYS RIGHT_HOME_MOD_EXCEPTION_KEYS
-
   #define LEFT_PINKY_KEY  KEY_LH_C5R4
   #define LEFT_RINGY_KEY  KEY_LH_C4R4
   #define LEFT_MIDDY_KEY  KEY_LH_C3R4
@@ -2291,7 +2281,7 @@ behaviors {
   left_pinky: homey_left_pinky {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_PINKY_REPEAT_DECAY>;
@@ -2308,7 +2298,7 @@ behaviors {
   left_pinky_bilateral: homey_left_pinky_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_PINKY_REPEAT_DECAY>;
@@ -2385,7 +2375,7 @@ behaviors {
   right_pinky: homey_right_pinky {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_PINKY_REPEAT_DECAY>;
@@ -2402,7 +2392,7 @@ behaviors {
   right_pinky_bilateral: homey_right_pinky_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_PINKY_REPEAT_DECAY>;
@@ -2479,7 +2469,7 @@ behaviors {
   left_ringy: homey_left_ringy {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_RINGY_REPEAT_DECAY>;
@@ -2496,7 +2486,7 @@ behaviors {
   left_ringy_bilateral: homey_left_ringy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_RINGY_REPEAT_DECAY>;
@@ -2573,7 +2563,7 @@ behaviors {
   right_ringy: homey_right_ringy {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_RINGY_REPEAT_DECAY>;
@@ -2590,7 +2580,7 @@ behaviors {
   right_ringy_bilateral: homey_right_ringy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_RINGY_REPEAT_DECAY>;
@@ -2667,7 +2657,7 @@ behaviors {
   left_middy: homey_left_middy {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_MIDDY_REPEAT_DECAY>;
@@ -2684,7 +2674,7 @@ behaviors {
   left_middy_bilateral: homey_left_middy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_MIDDY_REPEAT_DECAY>;
@@ -2761,7 +2751,7 @@ behaviors {
   right_middy: homey_right_middy {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_MIDDY_REPEAT_DECAY>;
@@ -2778,7 +2768,7 @@ behaviors {
   right_middy_bilateral: homey_right_middy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_MIDDY_REPEAT_DECAY>;
@@ -2855,7 +2845,7 @@ behaviors {
   left_index: homey_left_index {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <LEFT_INDEX_REPEAT_DECAY>;
@@ -2872,7 +2862,7 @@ behaviors {
   left_index_bilateral: homey_left_index_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <LEFT_INDEX_REPEAT_DECAY>;
@@ -2949,7 +2939,7 @@ behaviors {
   right_index: homey_right_index {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_INDEX_REPEAT_DECAY>;
@@ -2966,7 +2956,7 @@ behaviors {
   right_index_bilateral: homey_right_index_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_INDEX_REPEAT_DECAY>;
@@ -3043,7 +3033,7 @@ behaviors {
   left_ringy_pinky: homey_left_ringy_pinky {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_RINGY_REPEAT_DECAY>;
@@ -3054,7 +3044,7 @@ behaviors {
   left_ringy_pinky_bilateral: homey_left_ringy_pinky_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_RINGY_REPEAT_DECAY>;
@@ -3078,7 +3068,7 @@ behaviors {
   left_middy_pinky: homey_left_middy_pinky {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_MIDDY_REPEAT_DECAY>;
@@ -3089,7 +3079,7 @@ behaviors {
   left_middy_pinky_bilateral: homey_left_middy_pinky_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_MIDDY_REPEAT_DECAY>;
@@ -3113,7 +3103,7 @@ behaviors {
   left_index_pinky: homey_left_index_pinky {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <LEFT_INDEX_REPEAT_DECAY>;
@@ -3124,7 +3114,7 @@ behaviors {
   left_index_pinky_bilateral: homey_left_index_pinky_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <LEFT_INDEX_REPEAT_DECAY>;
@@ -3148,7 +3138,7 @@ behaviors {
   right_ringy_pinky: homey_right_ringy_pinky {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_RINGY_REPEAT_DECAY>;
@@ -3159,7 +3149,7 @@ behaviors {
   right_ringy_pinky_bilateral: homey_right_ringy_pinky_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_RINGY_REPEAT_DECAY>;
@@ -3183,7 +3173,7 @@ behaviors {
   right_middy_pinky: homey_right_middy_pinky {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_MIDDY_REPEAT_DECAY>;
@@ -3194,7 +3184,7 @@ behaviors {
   right_middy_pinky_bilateral: homey_right_middy_pinky_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_MIDDY_REPEAT_DECAY>;
@@ -3218,7 +3208,7 @@ behaviors {
   right_index_pinky: homey_right_index_pinky {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_INDEX_REPEAT_DECAY>;
@@ -3229,7 +3219,7 @@ behaviors {
   right_index_pinky_bilateral: homey_right_index_pinky_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_INDEX_REPEAT_DECAY>;
@@ -3253,7 +3243,7 @@ behaviors {
   left_pinky_ringy: homey_left_pinky_ringy {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_PINKY_REPEAT_DECAY>;
@@ -3264,7 +3254,7 @@ behaviors {
   left_pinky_ringy_bilateral: homey_left_pinky_ringy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_PINKY_REPEAT_DECAY>;
@@ -3288,7 +3278,7 @@ behaviors {
   left_middy_ringy: homey_left_middy_ringy {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_MIDDY_REPEAT_DECAY>;
@@ -3299,7 +3289,7 @@ behaviors {
   left_middy_ringy_bilateral: homey_left_middy_ringy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_MIDDY_REPEAT_DECAY>;
@@ -3323,7 +3313,7 @@ behaviors {
   left_index_ringy: homey_left_index_ringy {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <LEFT_INDEX_REPEAT_DECAY>;
@@ -3334,7 +3324,7 @@ behaviors {
   left_index_ringy_bilateral: homey_left_index_ringy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <LEFT_INDEX_REPEAT_DECAY>;
@@ -3358,7 +3348,7 @@ behaviors {
   right_pinky_ringy: homey_right_pinky_ringy {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_PINKY_REPEAT_DECAY>;
@@ -3369,7 +3359,7 @@ behaviors {
   right_pinky_ringy_bilateral: homey_right_pinky_ringy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_PINKY_REPEAT_DECAY>;
@@ -3393,7 +3383,7 @@ behaviors {
   right_middy_ringy: homey_right_middy_ringy {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_MIDDY_REPEAT_DECAY>;
@@ -3404,7 +3394,7 @@ behaviors {
   right_middy_ringy_bilateral: homey_right_middy_ringy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_MIDDY_REPEAT_DECAY>;
@@ -3428,7 +3418,7 @@ behaviors {
   right_index_ringy: homey_right_index_ringy {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_INDEX_REPEAT_DECAY>;
@@ -3439,7 +3429,7 @@ behaviors {
   right_index_ringy_bilateral: homey_right_index_ringy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_INDEX_REPEAT_DECAY>;
@@ -3463,7 +3453,7 @@ behaviors {
   left_pinky_middy: homey_left_pinky_middy {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_PINKY_REPEAT_DECAY>;
@@ -3474,7 +3464,7 @@ behaviors {
   left_pinky_middy_bilateral: homey_left_pinky_middy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_PINKY_REPEAT_DECAY>;
@@ -3498,7 +3488,7 @@ behaviors {
   left_ringy_middy: homey_left_ringy_middy {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_RINGY_REPEAT_DECAY>;
@@ -3509,7 +3499,7 @@ behaviors {
   left_ringy_middy_bilateral: homey_left_ringy_middy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_RINGY_REPEAT_DECAY>;
@@ -3533,7 +3523,7 @@ behaviors {
   left_index_middy: homey_left_index_middy {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <LEFT_INDEX_REPEAT_DECAY>;
@@ -3544,7 +3534,7 @@ behaviors {
   left_index_middy_bilateral: homey_left_index_middy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <LEFT_INDEX_REPEAT_DECAY>;
@@ -3568,7 +3558,7 @@ behaviors {
   right_pinky_middy: homey_right_pinky_middy {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_PINKY_REPEAT_DECAY>;
@@ -3579,7 +3569,7 @@ behaviors {
   right_pinky_middy_bilateral: homey_right_pinky_middy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_PINKY_REPEAT_DECAY>;
@@ -3603,7 +3593,7 @@ behaviors {
   right_ringy_middy: homey_right_ringy_middy {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_RINGY_REPEAT_DECAY>;
@@ -3614,7 +3604,7 @@ behaviors {
   right_ringy_middy_bilateral: homey_right_ringy_middy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_RINGY_REPEAT_DECAY>;
@@ -3638,7 +3628,7 @@ behaviors {
   right_index_middy: homey_right_index_middy {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_INDEX_REPEAT_DECAY>;
@@ -3649,7 +3639,7 @@ behaviors {
   right_index_middy_bilateral: homey_right_index_middy_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_INDEX_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_INDEX_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_INDEX_REPEAT_DECAY>;
@@ -3673,7 +3663,7 @@ behaviors {
   left_pinky_index: homey_left_pinky_index {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_PINKY_REPEAT_DECAY>;
@@ -3684,7 +3674,7 @@ behaviors {
   left_pinky_index_bilateral: homey_left_pinky_index_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_PINKY_REPEAT_DECAY>;
@@ -3708,7 +3698,7 @@ behaviors {
   left_ringy_index: homey_left_ringy_index {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_RINGY_REPEAT_DECAY>;
@@ -3719,7 +3709,7 @@ behaviors {
   left_ringy_index_bilateral: homey_left_ringy_index_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_RINGY_REPEAT_DECAY>;
@@ -3743,7 +3733,7 @@ behaviors {
   left_middy_index: homey_left_middy_index {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_MIDDY_REPEAT_DECAY>;
@@ -3754,7 +3744,7 @@ behaviors {
   left_middy_index_bilateral: homey_left_middy_index_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = LEFT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <LEFT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <RIGHT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <LEFT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <LEFT_MIDDY_REPEAT_DECAY>;
@@ -3778,7 +3768,7 @@ behaviors {
   right_pinky_index: homey_right_pinky_index {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_PINKY_REPEAT_DECAY>;
@@ -3789,7 +3779,7 @@ behaviors {
   right_pinky_index_bilateral: homey_right_pinky_index_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_PINKY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_PINKY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_PINKY_REPEAT_DECAY>;
@@ -3813,7 +3803,7 @@ behaviors {
   right_ringy_index: homey_right_ringy_index {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_RINGY_REPEAT_DECAY>;
@@ -3824,7 +3814,7 @@ behaviors {
   right_ringy_index_bilateral: homey_right_ringy_index_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_RINGY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_RINGY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_RINGY_REPEAT_DECAY>;
@@ -3848,7 +3838,7 @@ behaviors {
   right_middy_index: homey_right_middy_index {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_MIDDY_REPEAT_DECAY>;
@@ -3859,7 +3849,7 @@ behaviors {
   right_middy_index_bilateral: homey_right_middy_index_bilateral {
     compatible = "zmk,behavior-hold-tap";
     flavor = RIGHT_MIDDY_HOLDING_TYPE;
-    hold-trigger-key-positions = <RIGHT_HOME_MOD_TRIGGER_KEYS>;
+    hold-trigger-key-positions = <LEFT_HAND_KEYS>;
     hold-trigger-on-release; // wait for other home row mods
     tapping-term-ms = <RIGHT_MIDDY_HOLDING_TIME>;
     quick-tap-ms = <RIGHT_MIDDY_REPEAT_DECAY>;
@@ -10687,7 +10677,7 @@ macros {
  &trans              &trans              &trans              &trans              &trans  &trans                                                                                                 &right_pinky_tap KEY_RH_C1R3  &right_pinky_tap KEY_RH_C2R3  &right_pinky_tap KEY_RH_C3R3  &right_pinky_tap KEY_RH_C4R3  &right_pinky_tap KEY_RH_C5R3  &right_pinky_tap KEY_RH_C6R3
  &trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans                                                                                                 &right_pinky_tap KEY_RH_C1R4              &RightPinkyIndex              &RightPinkyMiddy              &RightPinkyRingy                         &none  &right_pinky_tap KEY_RH_C6R4
  &trans              &trans              &trans              &trans              &trans  &trans  &trans  &trans  &trans  &right_pinky_tap KEY_RH_T3  &right_pinky_tap KEY_RH_T2  &mo LAY_RH_T1  &right_pinky_tap KEY_RH_C1R5  &right_pinky_tap KEY_RH_C2R5  &right_pinky_tap KEY_RH_C3R5  &right_pinky_tap KEY_RH_C4R5  &right_pinky_tap KEY_RH_C5R5                        &trans
- &trans              &trans              &trans              &trans              &trans          &trans  &trans  &trans               &mo LAY_RH_T6               &kp KEY_RH_T5  &mo LAY_RH_T4                                             &mo LAY_RH_C2R6  &right_pinky_tap KEY_RH_C3R6  &right_pinky_tap KEY_RH_C4R6  &right_pinky_tap KEY_RH_C5R6                        &trans
+ &trans              &trans              &trans              &trans              &trans          &trans  &trans  &trans               &mo LAY_RH_T6               &mo LAY_RH_T5  &mo LAY_RH_T4                                             &mo LAY_RH_C2R6  &right_pinky_tap KEY_RH_C3R6  &right_pinky_tap KEY_RH_C4R6  &right_pinky_tap KEY_RH_C5R6                        &trans
             >;
         };
 
@@ -10698,7 +10688,7 @@ macros {
  &trans              &trans              &trans              &trans              &trans  &trans                                                                                                 &right_ringy_tap KEY_RH_C1R3  &right_ringy_tap KEY_RH_C2R3  &right_ringy_tap KEY_RH_C3R3  &right_ringy_tap KEY_RH_C4R3  &right_ringy_tap KEY_RH_C5R3  &right_ringy_tap KEY_RH_C6R3
  &trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans                                                                                                 &right_ringy_tap KEY_RH_C1R4              &RightRingyIndex              &RightRingyMiddy                         &none              &RightRingyPinky  &right_ringy_tap KEY_RH_C6R4
  &trans              &trans              &trans              &trans              &trans  &trans  &trans  &trans  &trans  &right_ringy_tap KEY_RH_T3  &right_ringy_tap KEY_RH_T2  &mo LAY_RH_T1  &right_ringy_tap KEY_RH_C1R5  &right_ringy_tap KEY_RH_C2R5  &right_ringy_tap KEY_RH_C3R5  &right_ringy_tap KEY_RH_C4R5  &right_ringy_tap KEY_RH_C5R5                        &trans
- &trans              &trans              &trans              &trans              &trans          &trans  &trans  &trans               &mo LAY_RH_T6               &kp KEY_RH_T5  &mo LAY_RH_T4                                             &mo LAY_RH_C2R6  &right_ringy_tap KEY_RH_C3R6  &right_ringy_tap KEY_RH_C4R6  &right_ringy_tap KEY_RH_C5R6                        &trans
+ &trans              &trans              &trans              &trans              &trans          &trans  &trans  &trans               &mo LAY_RH_T6               &mo LAY_RH_T5  &mo LAY_RH_T4                                             &mo LAY_RH_C2R6  &right_ringy_tap KEY_RH_C3R6  &right_ringy_tap KEY_RH_C4R6  &right_ringy_tap KEY_RH_C5R6                        &trans
             >;
         };
 
@@ -10709,7 +10699,7 @@ macros {
  &trans              &trans              &trans              &trans              &trans  &trans                                                                                                 &right_middy_tap KEY_RH_C1R3  &right_middy_tap KEY_RH_C2R3  &right_middy_tap KEY_RH_C3R3  &right_middy_tap KEY_RH_C4R3  &right_middy_tap KEY_RH_C5R3  &right_middy_tap KEY_RH_C6R3
  &trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans                                                                                                 &right_middy_tap KEY_RH_C1R4              &RightMiddyIndex                         &none              &RightMiddyRingy              &RightMiddyPinky  &right_middy_tap KEY_RH_C6R4
  &trans              &trans              &trans              &trans              &trans  &trans  &trans  &trans  &trans  &right_middy_tap KEY_RH_T3  &right_middy_tap KEY_RH_T2  &mo LAY_RH_T1  &right_middy_tap KEY_RH_C1R5  &right_middy_tap KEY_RH_C2R5  &right_middy_tap KEY_RH_C3R5  &right_middy_tap KEY_RH_C4R5  &right_middy_tap KEY_RH_C5R5                        &trans
- &trans              &trans              &trans              &trans              &trans          &trans  &trans  &trans               &mo LAY_RH_T6               &kp KEY_RH_T5  &mo LAY_RH_T4                                             &mo LAY_RH_C2R6  &right_middy_tap KEY_RH_C3R6  &right_middy_tap KEY_RH_C4R6  &right_middy_tap KEY_RH_C5R6                        &trans
+ &trans              &trans              &trans              &trans              &trans          &trans  &trans  &trans               &mo LAY_RH_T6               &mo LAY_RH_T5  &mo LAY_RH_T4                                             &mo LAY_RH_C2R6  &right_middy_tap KEY_RH_C3R6  &right_middy_tap KEY_RH_C4R6  &right_middy_tap KEY_RH_C5R6                        &trans
             >;
         };
 
@@ -10720,7 +10710,7 @@ macros {
  &trans              &trans              &trans              &trans              &trans  &trans                                                                                                 &right_index_tap KEY_RH_C1R3  &right_index_tap KEY_RH_C2R3  &right_index_tap KEY_RH_C3R3  &right_index_tap KEY_RH_C4R3  &right_index_tap KEY_RH_C5R3  &right_index_tap KEY_RH_C6R3
  &trans  &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY  &trans                                                                                                 &right_index_tap KEY_RH_C1R4                         &none              &RightIndexMiddy              &RightIndexRingy              &RightIndexPinky  &right_index_tap KEY_RH_C6R4
  &trans              &trans              &trans              &trans              &trans  &trans  &trans  &trans  &trans  &right_index_tap KEY_RH_T3  &right_index_tap KEY_RH_T2  &mo LAY_RH_T1  &right_index_tap KEY_RH_C1R5  &right_index_tap KEY_RH_C2R5  &right_index_tap KEY_RH_C3R5  &right_index_tap KEY_RH_C4R5  &right_index_tap KEY_RH_C5R5                        &trans
- &trans              &trans              &trans              &trans              &trans          &trans  &trans  &trans               &mo LAY_RH_T6               &kp KEY_RH_T5  &mo LAY_RH_T4                                             &mo LAY_RH_C2R6  &right_index_tap KEY_RH_C3R6  &right_index_tap KEY_RH_C4R6  &right_index_tap KEY_RH_C5R6                        &trans
+ &trans              &trans              &trans              &trans              &trans          &trans  &trans  &trans               &mo LAY_RH_T6               &mo LAY_RH_T5  &mo LAY_RH_T4                                             &mo LAY_RH_C2R6  &right_index_tap KEY_RH_C3R6  &right_index_tap KEY_RH_C4R6  &right_index_tap KEY_RH_C5R6                        &trans
             >;
         };
 
