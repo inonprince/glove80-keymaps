@@ -2,7 +2,7 @@
 , firmware ? import ../src {}
 }:
 let
-  keymap = "${config}/../keymap.zmk";
+  keymap = "${config}/glove80.keymap";
   kconfig = "${config}/glove80.conf";
   glove80_left = firmware.zmk.override {
     board = "glove80_lh";
