@@ -1,4 +1,4 @@
-{ config ? ./
+{ config ? ./.
 , firmware ? import ../src {}
 }:
 let
