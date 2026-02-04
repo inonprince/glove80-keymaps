@@ -346,15 +346,15 @@
         2
       ]
     },
-    "<i class='fa fa-bars'></i>\nmenu\n\n\n\n\nContext",
+    "Scroll lock",
     {
       "f": 3
     },
-    "<i class='fa fa-camera'></i>\nscreen\n\n\n\n\nPrint",
+    "Num lock",
     {
       "f": 3
     },
-    "<i class='fa fa-coffee'></i>\nbreak\n\n\n\n\nPause",
+    "Caps lock",
     {
       "c": "#ffccbc",
       "fa": [
@@ -367,18 +367,18 @@
         2
       ]
     },
-    "<i class='fa fa-lightbulb-o'></i>\non/off\n\n\n\n\nRGB",
+    "<i class='fa fa-lightbulb-o'></i>\non/off\n\n\n\nRGB",
     {
       "x": 7.25
     },
-    "<i class='fa fa-lightbulb-o'></i>\non/off\n\n\n\n\nRGB",
+    "<i class='fa fa-lightbulb-o'></i>\non/off\n\n\n\nRGB",
     {
       "c": "#e8f5e9",
       "a": 7
     },
-    "Scroll lock",
-    "Num lock",
-    "Caps lock"
+    "<i class='fa fa-coffee'></i>\nbreak\n\n\n\nPause",
+    "<i class='fa fa-camera'></i>\nscreen\n\n\n\nPrint",
+    "<i class='fa fa-bars'></i>\nmenu\n\n\n\nContext"
   ],
   [
     {
@@ -436,15 +436,15 @@
       "a": 7,
       "f": 3
     },
-    "Shift\n\n\n\nShift",
+    "L_IDX_MOD\n\n\n\nL_IDX_MOD",
     {
       "f": 3
     },
-    "Ctrl\n\n\n\nCtrl",
+    "L_MID_MOD\n\n\n\nL_MID_MOD",
     {
       "f": 3
     },
-    "Alt\n\n\n\nAlt"
+    "L_RNG_MOD\n\n\n\nL_RNG_MOD"
   ],
   [
     {
@@ -580,7 +580,7 @@
       "a": 5,
       "f": 3
     },
-    "<i class='fa fa-lock'></i>\nscreen\n\n\nFunction\n\nLock"
+    ""
   ],
   [
     {
@@ -589,7 +589,7 @@
       "c": "#e8f5e9",
       "a": 7
     },
-    "Scroll lock\n\n\n\nCursor"
+    "<i class='fa fa-linux'></i>\nMagic SysRq\n\n\nBase"
   ],
   [
     {
@@ -629,7 +629,7 @@
         2
       ]
     },
-    "<i class='fa fa-bolt'></i>\nsuspend\n\n\n\n\nSleep"
+    ""
   ],
   [
     {
@@ -638,7 +638,7 @@
       "c": "#e8f5e9",
       "a": 7
     },
-    "Num lock\n\n\n\nNumber"
+    "<i class='fa fa-bars'></i>\nmenu\n\n\nTyping\n\nContext"
   ],
   [
     {
@@ -676,7 +676,7 @@
         2
       ]
     },
-    "<i class='fa fa-power-off'></i>\non/off\n\n\nLower\n\nPower"
+    "<i class='fa fa-power-off'></i>\non/off\n\nLower\n\nPower"
   ],
   [
     {
@@ -686,7 +686,7 @@
       "a": 7,
       "f": 3
     },
-    "Caps lock\n\n\n\nTyping"
+    "Num lock\n\n\nNumber"
   ],
   [
     {
@@ -719,7 +719,7 @@
       "a": 5,
       "f": 3
     },
-    "<i class='fa fa-coffee'></i>\nbreak\n\n\nLower\n\nPause"
+    "<i class='fa fa-bolt'></i>\nsuspend\n\n\nSleep"
   ],
   [
     {
@@ -737,7 +737,7 @@
         2
       ]
     },
-    "<i class='fa fa-bars'></i>\nmenu\n\n\nTyping\n\nContext"
+    "Scroll lock\n\n\nCursor"
   ],
   [
     {
@@ -774,7 +774,7 @@
         2
       ]
     },
-    "<i class='fa fa-linux'></i>\nMagic SysRq\n\n\nBase"
+    "<img src=\"https://openclipart.org/download/278214/fingerprint.svg\" width=\"36\" height=\"36\" />\n\n\n\nSystem"
   ],
   [
     {
@@ -784,7 +784,7 @@
       "p": "CHICKLET",
       "f": 3
     },
-    "<i class='fa fa-camera'></i>\nscreen\n\n\nMouse\n\nPrint"
+    "Caps lock\n\n\nSymbol"
   ],
   [
     {

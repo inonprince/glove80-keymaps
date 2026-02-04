@@ -129,31 +129,31 @@
       "a": 7,
       "f": 3
     },
-    "Insert",
-    "Shift-Tab",
-    "Delete",
+    "Prev track",
+    "Next track",
+    "<i class='fa fa-play'></i>",
     {
       "c": "#cccccc",
       "g": true,
       "f": 6
     },
-    "",
+    "Media home",
     {
       "x": 7.25,
       "c": "#e0f2f1",
       "g": false,
       "f": 3
     },
-    "Media player <i class='fa fa-music'></i>",
+    "",
     {
       "f": 4
     },
-    "<i class='fa fa-play'></i>",
+    "Shift-Tab",
     {
       "f": 5
     },
-    "<i class='fa fa-step-backward'></i>",
-    "<i class='fa fa-step-forward'></i>"
+    "Delete",
+    "Insert"
   ],
   [
     {
@@ -168,21 +168,21 @@
       "g": true,
       "f": 3
     },
-    "\n\n\n\nSymbol",
+    "Eject",
     {
       "c": "#ffccbc",
       "g": false
     },
-    "Escape",
+    "<i class='fa fa-stop'></i>",
     {
       "x": 15.25,
       "c": "#e0f2f1"
     },
-    "<i class='fa fa-stop'></i>",
+    "Escape",
     {
       "f": 5
     },
-    "<i class='fa fa-eject'></i>",
+    "",
     {
       "c": "#cccccc",
       "t": "#9E9E9E",
@@ -198,25 +198,25 @@
       "t": "#000000",
       "f": 3
     },
-    "Space",
-    "Tab",
-    "Back space",
+    "F7",
+    "F8",
+    "F9",
     {
       "c": "#ffecb3",
       "f": 6
     },
-    "<i class='fa fa-calculator'></i>",
+    "KCalc",
     {
       "x": 7.25
     },
-    "<i class='fa fa-calculator'></i>",
+    "KCalc",
     {
       "c": "#fff3e0",
       "f": 4
     },
-    "F7",
-    "F8",
-    "F9"
+    "Tab",
+    "Back space",
+    "Space"
   ],
   [
     {
@@ -232,7 +232,7 @@
       "g": true,
       "f": 6
     },
-    "",
+    "F13",
     {
       "c": "#ffccbc",
       "g": false,
@@ -244,14 +244,14 @@
       "c": "#fff3e0",
       "f": 4
     },
-    "F10",
+    "Enter",
     {
       "f": 3,
       "fa": [
         4
       ]
     },
-    "F13",
+    "",
     {
       "c": "#cccccc",
       "t": "#9E9E9E",
@@ -269,30 +269,30 @@
       "p": "SPACE",
       "f": 3
     },
-    "Alt\n\n\n\nAlt",
-    "Ctrl\n\n\n\nCtrl",
+    "F4",
+    "F5",
     {
       "n": true
     },
-    "Shift\n\n\n\nShift",
+    "F6",
     {
       "c": "#ffecb3",
       "p": "CHICKLET",
       "f": 6
     },
-    "<i class='fa fa-internet-explorer'></i>",
+    "KWWW",
     {
       "x": 7.25
     },
-    "<i class='fa fa-internet-explorer'></i>",
+    "KWWW",
     {
       "c": "#fff3e0",
       "f": 4,
       "n": true
     },
-    "F4\n\n\n\nShift",
-    "F5\n\n\n\nCtrl",
-    "F6\n\n\n\nAlt"
+    "R_IDX_MOD",
+    "R_MID_MOD",
+    "R_RNG_MOD"
   ],
   [
     {
@@ -313,26 +313,26 @@
         2
       ]
     },
-    "sticky\n\n\n\nShift\n\nShift",
+    "F14",
     {
       "a": 7,
       "f": 3
     },
-    "Win\n\n\n\nWin",
+    "F11",
     {
       "x": 15.25,
       "c": "#fff3e0",
       "p": "CHICKLET",
       "f": 4
     },
-    "F11\n\n\n\nWin",
+    "R_PNK_MOD",
     {
       "f": 3,
       "fa": [
         4
       ]
     },
-    "F14",
+    "Sticky Shift",
     {
       "c": "#cccccc",
       "t": "#9E9E9E",
@@ -349,28 +349,28 @@
       "t": "#000000",
       "f": 3
     },
-    "Select line",
-    "Select word",
+    "F1",
+    "F2",
     {
       "c": "#d1c4e9"
     },
-    "Find<br> <i class='fa fa-search'></i>",
+    "F3",
     {
       "c": "#ffecb3",
       "f": 6
     },
-    "<i class='fa fa-folder-open'></i>",
+    "_FILES",
     {
       "x": 7.25
     },
-    "<i class='fa fa-folder-open'></i>",
+    "_FILES",
     {
       "c": "#fff3e0",
       "f": 4
     },
-    "F1",
-    "F2",
-    "F3\n\n\n\nAltGr"
+    "_FIND",
+    "Select word",
+    "Select line"
   ],
   [
     {
@@ -386,26 +386,26 @@
       "g": true,
       "f": 6
     },
-    "",
+    "F15",
     {
       "c": "#dcedc8",
       "g": false,
       "f": 3
     },
-    "Select all",
+    "F12",
     {
       "x": 15.25,
       "c": "#fff3e0",
       "f": 4
     },
-    "F12",
+    "Select all",
     {
       "f": 3,
       "fa": [
         4
       ]
     },
-    "F15",
+    "",
     {
       "c": "#cccccc",
       "t": "#9E9E9E",
@@ -422,16 +422,16 @@
       "t": "#000000",
       "f": 3
     },
-    "Redo <i class='fa fa-repeat'></i>",
-    "Find prev",
-    "Find next",
+    "Bright down",
+    "Bright up",
+    "Bright max",
     {
       "x": 9.25,
       "c": "#e8f5e9"
     },
-    "Bright max <i class='fa fa-sun-o'></i>",
-    "Bright <i class='fa fa-plus'></i>",
-    "Bright <i class='fa fa-minus'></i>"
+    "_FIND_NEXT",
+    "_FIND_PREV",
+    "_UNDO"
   ],
   [
     {
@@ -447,18 +447,18 @@
       "g": true,
       "f": 3
     },
-    "",
+    "Bright auto",
     {
       "c": "#d1c4e9",
       "g": false
     },
-    "Undo <i class='fa fa-undo'></i>",
+    "Bright min",
     {
       "x": 15.25,
       "c": "#e8f5e9"
     },
-    "Bright min <i class='fa fa-moon-o'></i>",
-    "Bright auto <i class='fa fa-eye'></i>",
+    "_REDO",
+    "",
     {
       "c": "#cccccc",
       "t": "#9E9E9E",
@@ -508,7 +508,7 @@
       "p": "SA SPACE",
       "f": 3
     },
-    "<img src=\"https://openclipart.org/download/278214/fingerprint.svg\" width=\"36\" height=\"36\" />\n\n\n\nFunction"
+    "<i class='fa fa-play'></i> <br> <i class='fa fa-pause'></i>"
   ],
   [
     {
@@ -519,7 +519,7 @@
       "p": "CHICKLET",
       "n": true
     },
-    "\n\n\n\nLayer"
+    "<i class='fa fa-volume-down'></i>"
   ],
   [
     {
@@ -549,14 +549,14 @@
       "g": true,
       "f": 3
     },
-    ""
+    "<i class='fa fa-step-backward'></i>"
   ],
   [
     {
       "y": 0.15000000000000036,
       "x": -0.15000000000000036
     },
-    "\n\n\n\nNumber"
+    "<i class='fa fa-volume-up'></i>"
   ],
   [
     {
@@ -586,7 +586,7 @@
       "g": true,
       "f": 3
     },
-    "Lower\n\n\n\nLower"
+    "<i class='fa fa-step-forward'></i>"
   ],
   [
     {
@@ -594,7 +594,7 @@
       "x": 0.7000000000000002,
       "f": 4
     },
-    "Raw\n\n\n\nTyping"
+    "<i class='fa fa-volume-off'></i><sub><sup><sub>&nbsp;</sub><sup><i class='fa fa-times'></i></sup></sup></sub>"
   ],
   [
     {
@@ -625,7 +625,7 @@
       "t": "#000000",
       "f": 4
     },
-    "<i class='fa fa-play'></i> <br> <i class='fa fa-pause'></i>\n\n\n\nLower"
+    ""
   ],
   [
     {
@@ -633,7 +633,7 @@
       "x": -1.6999999999999993,
       "f": 6
     },
-    "<i class='fa fa-volume-off'></i><sub><sup><sub>&nbsp;</sub><sup><i class='fa fa-times'></i></sup></sup></sub>"
+    ""
   ],
   [
     {
@@ -662,7 +662,7 @@
       "c": "#e0f2f1",
       "t": "#000000"
     },
-    "<i class='fa fa-step-backward'></i>"
+    ""
   ],
   [
     {
@@ -670,7 +670,7 @@
       "x": -0.8499999999999996,
       "f": 6
     },
-    "<i class='fa fa-volume-down'></i>\n\n\n\nMouse"
+    ""
   ],
   [
     {
@@ -700,7 +700,7 @@
       "t": "#000000",
       "f": 4
     },
-    "<i class='fa fa-step-forward'></i>\n\n\n\nSystem"
+    "<img src=\"https://openclipart.org/download/278214/fingerprint.svg\" width=\"36\" height=\"36\" />\n\n\n\nFunction"
   ],
   [
     {
@@ -708,7 +708,7 @@
       "f": 6,
       "n": true
     },
-    "<i class='fa fa-volume-up'></i>\n\n\n\nSymbol"
+    ""
   ],
   [
     {

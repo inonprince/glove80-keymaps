@@ -141,13 +141,13 @@
   #define KEY_LH_C2R5 FSLH
   #define KEY_LH_C1R5 SEMI
   #define KEY_LH_T1 ESC
-  #define LAY_LH_T1 LAYER_Function
+  #define LAY_LH_T1 LAYER_System
   #define KEY_LH_T2 LPAR
   #define KEY_LH_T3 RPAR
   #define KEY_RH_T3 _HOME
   #define KEY_RH_T2 _END
   #define KEY_RH_T1 ENTER
-  #define LAY_RH_T1 LAYER_System
+  #define LAY_RH_T1 LAYER_Function
   #define KEY_RH_C1R5 J
   #define KEY_RH_C2R5 M
   #define KEY_RH_C3R5 G
@@ -233,13 +233,13 @@
   #define KEY_LH_C2R5 V
   #define KEY_LH_C1R5 B
   #define KEY_LH_T1 ESC
-  #define LAY_LH_T1 LAYER_Function
+  #define LAY_LH_T1 LAYER_System
   #define KEY_LH_T2 LPAR
   #define KEY_LH_T3 RPAR
   #define KEY_RH_T3 _HOME
   #define KEY_RH_T2 _END
   #define KEY_RH_T1 ENTER
-  #define LAY_RH_T1 LAYER_System
+  #define LAY_RH_T1 LAYER_Function
   #define KEY_RH_C1R5 K
   #define KEY_RH_C2R5 M
   #define KEY_RH_C3R5 COMMA
@@ -325,13 +325,13 @@
   #define KEY_LH_C2R5 K
   #define KEY_LH_C1R5 X
   #define KEY_LH_T1 ESC
-  #define LAY_LH_T1 LAYER_Function
+  #define LAY_LH_T1 LAYER_System
   #define KEY_LH_T2 LPAR
   #define KEY_LH_T3 RPAR
   #define KEY_RH_T3 _HOME
   #define KEY_RH_T2 _END
   #define KEY_RH_T1 ENTER
-  #define LAY_RH_T1 LAYER_System
+  #define LAY_RH_T1 LAYER_Function
   #define KEY_RH_C1R5 B
   #define KEY_RH_C2R5 M
   #define KEY_RH_C3R5 W
@@ -417,13 +417,13 @@
   #define KEY_LH_C2R5 V
   #define KEY_LH_C1R5 B
   #define KEY_LH_T1 ESC
-  #define LAY_LH_T1 LAYER_Function
+  #define LAY_LH_T1 LAYER_System
   #define KEY_LH_T2 LPAR
   #define KEY_LH_T3 RPAR
   #define KEY_RH_T3 _HOME
   #define KEY_RH_T2 _END
   #define KEY_RH_T1 ENTER
-  #define LAY_RH_T1 LAYER_System
+  #define LAY_RH_T1 LAYER_Function
   #define KEY_RH_C1R5 N
   #define KEY_RH_C2R5 M
   #define KEY_RH_C3R5 COMMA
