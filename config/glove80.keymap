@@ -10534,6 +10534,8 @@ macros {
 #endif
 /*HACK*//{
 
+};
+
 /* Generated input processors */
 
 

@@ -90,10 +90,13 @@ def sync_custom_defined_behaviors(config_text: str, dtsi_text: str) -> tuple[str
         r"/\* Custom Defined Behaviors \*/\n/ \{\n.*?\n/\* Generated input processors \*/",
         re.S,
     )
+    # keymap.dtsi ends at `/*HACK*//{` and the generated keymap keeps a balancing
+    # `};` immediately before "Generated input processors".
     replacement = (
         "/* Custom Defined Behaviors */\n"
         "/ {\n"
         f"{dtsi_text.rstrip()}\n\n"
+        "};\n\n"
         "/* Generated input processors */"
     )
     return pattern.subn(replacement, config_text, count=1)
