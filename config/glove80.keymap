@@ -10728,10 +10728,10 @@ macros {
         layer_Number {
             bindings = <
          &none               &none               &none               &none               &none                                                                                                       &kp A       &kp B       &kp C          &kp D          &kp E
-         &none             &kp ESC             &kp INS         &kp LS(TAB)             &kp DEL   &none                                                                            &kp LS(BSLH)  &kp LS(N3)  &kp LS(N4)  &kp LS(N6)  &kp LS(GRAVE)     &kp LS(N1)
-         &kp E             &kp RET           &kp SPACE             &kp TAB            &kp BSPC  &kp N0                                                                               &kp LS(G)      &kp N7      &kp N8      &kp N9   &kp LS(SEMI)     &kp LS(N5)
-     &sk LSHFT  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD   &kp X                                                                                   &kp K      &kp N4      &kp N5      &kp N6      &kp MINUS  &kp LS(EQUAL)
- &kp LS(MINUS)         &select_all        &select_line        &select_word           &kp _FIND   &kp F   &none              &none   &none  &kp LS(COMMA)  &kp LS(DOT)  &kp COMMA         &kp J      &kp N1      &kp N2      &kp N3       &kp FSLH     &kp LS(N8)
+       &kp F16             &kp ESC             &kp INS         &kp LS(TAB)             &kp DEL  &kp F16                                                                                     &kp F16  &kp LS(N3)  &kp LS(N4)  &kp LS(N6)  &kp LS(GRAVE)     &kp LS(N1)
+         &kp E             &kp RET           &kp SPACE             &kp TAB            &kp BSPC &kp F17                                                                                     &kp F17      &kp N7      &kp N8      &kp N9   &kp LS(SEMI)     &kp LS(N5)
+     &sk LSHFT  &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD &kp F18                                                                                   &kp F18      &kp N4      &kp N5      &kp N6      &kp MINUS  &kp LS(EQUAL)
+ &kp LS(MINUS)         &select_all        &select_line        &select_word           &kp _FIND &kp F19  &none              &none   &none  &kp LS(COMMA)  &kp LS(DOT)  &kp COMMA       &kp F19      &kp N1      &kp N2      &kp N3       &kp FSLH     &kp LS(N8)
          &none           &kp _UNDO           &kp _REDO      &kp _FIND_PREV      &kp _FIND_NEXT           &none  &tog LAYER_Number   &none      &kp EQUAL      &kp DOT     &kp N0                &kp LS(N9)    &kp LBKT    &kp RBKT     &kp LS(N0)     &kp LS(N2)
             >;
         };

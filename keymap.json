@@ -7148,18 +7148,18 @@
         ]
       },
       {
-        "value": "&none"
+        "value": "&kp",
+        "params": [
+          {
+            "value": "F16"
+          }
+        ]
       },
       {
         "value": "&kp",
         "params": [
           {
-            "value": "LS",
-            "params": [
-              {
-                "value": "BSLH"
-              }
-            ]
+            "value": "F16"
           }
         ]
       },
@@ -7272,7 +7272,7 @@
         "value": "&kp",
         "params": [
           {
-            "value": "N0"
+            "value": "F17"
           }
         ]
       },
@@ -7280,12 +7280,7 @@
         "value": "&kp",
         "params": [
           {
-            "value": "LS",
-            "params": [
-              {
-                "value": "G"
-              }
-            ]
+            "value": "F17"
           }
         ]
       },
@@ -7383,7 +7378,7 @@
         "value": "&kp",
         "params": [
           {
-            "value": "X"
+            "value": "F18"
           }
         ]
       },
@@ -7391,7 +7386,7 @@
         "value": "&kp",
         "params": [
           {
-            "value": "K"
+            "value": "F18"
           }
         ]
       },
@@ -7489,7 +7484,7 @@
         "value": "&kp",
         "params": [
           {
-            "value": "F"
+            "value": "F19"
           }
         ]
       },
@@ -7540,7 +7535,7 @@
         "value": "&kp",
         "params": [
           {
-            "value": "J"
+            "value": "F19"
           }
         ]
       },
@@ -9718,7 +9713,7 @@
         "value": "&kp",
         "params": [
           {
-            "value": "SEMI"
+            "value": "BSLH"
           }
         ]
       },
