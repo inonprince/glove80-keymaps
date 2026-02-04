@@ -1,6 +1,7 @@
 require 'rake/clean'
 require 'json'
 require 'erb'
+require 'rbconfig'
 
 task :default => [:dtsi, :dot, :pdf]
 
@@ -65,7 +66,8 @@ file 'define.svg' => 'define.dot' do |t|
 end
 
 file 'define.dot' => ['define.dot.erb', 'keymap.dtsi.min', 'device.dtsi.min'] do |t|
-  sh "erb #{t.prerequisites[0]} > #{t.name}"
+  erb_bin = File.join(File.dirname(RbConfig.ruby), 'erb')
+  sh "#{erb_bin} #{t.prerequisites[0]} > #{t.name}"
 end
 
 file 'define.json' => ['keymap.dtsi.min', 'device.dtsi.min'] do |t|
