@@ -1,62 +1,92 @@
-# Canonical Sources and Regeneration Notes
+# Canonical Sources and How to Make Changes
 
-## Source of truth (edit here first)
+This document defines where to make edits first, depending on the kind of change.
 
-- `keymap.json`
-  - Canonical source for layer key assignments/positions from Glove80 Layout Editor exports.
-  - If you are changing which key is at which position on a layer, this is the primary source.
-- `keymap.dtsi.erb`
-  - Canonical template source for generated custom DTS snippet logic (macros, combos, defaults, etc.).
-- `world.yaml` and `emoji.yaml`
-  - Canonical data sources for generated World/Emoji macro content.
+## Source of truth by change type
 
-## Generated/derived files
+### 1) Key assignments / key positions on layers
 
-- `keymap.dtsi`
-  - Generated from `keymap.dtsi.erb` + `keymap.json` (+ YAML inputs) via `rake` (phase 1).
-  - Intended to be copied into the Layout Editor's "Custom Defined Behaviors" area.
+Edit:
+- `keymap.json` (canonical for layer bindings and physical positions)
+
+Typical examples:
+- swapping keys on Symbol/Cursor/Number layers
+- moving a key from one position to another
+- changing a key behavior at a specific position
+
+Notes:
+- In `keymap.json`, these changes are in `layers` entries (indexed by `layer_names`).
+- For this repo, treat `config/glove80.keymap` as downstream output for these edits.
+
+### 2) DTS template logic (macros, combos, defaults, helper behaviors)
+
+Edit:
+- `keymap.dtsi.erb` (canonical template)
+
+Typical examples:
+- changing combo logic
+- changing behavior definitions
+- changing default preprocessor settings in the generated DTS
+
+### 3) World/Emoji data content
+
+Edit:
+- `world.yaml`
+- `emoji.yaml`
+
+These feed generated sections used by `keymap.dtsi.erb`.
+
+### 4) Build/runtime keymap output
+
+Derived/downstream files:
 - `config/glove80.keymap`
-  - Build-time keymap used for local firmware builds in this repo.
-  - Treated as downstream output in this workflow; should be kept in sync with canonical sources.
-- `keymap.zmk`
-  - Symlink to `config/glove80.keymap`.
+- `keymap.dtsi`
+- `keymap.zmk` (symlink to `config/glove80.keymap`)
 
-## Symbol-layer change recorded here (2026-02-03)
+Do not treat these as canonical for key-placement edits unless you intentionally need an output-only hotfix.
 
-Goal: on Symbol layer, swap:
-1. Backspace and Tab
-2. Delete and Shift+Tab
+## Diagram sources (separate from keymap generation)
 
-Canonical source edit was made in `keymap.json` on layer `Symbol`:
-- Swapped indices `29` and `30` (`DEL` <-> `LS(TAB)`).
-- Swapped indices `41` and `42` (`BSPC` <-> `TAB`).
+Layer diagrams are maintained separately and are **not** auto-generated from `keymap.json`.
 
-## Commit source audit
+Edit:
+- `README/*-layer-diagram.json` (KLE source for visual maps)
 
-- `ddba918eb35b84ebd6de34fca702fab2e20a836a`
-  - `config/glove80.keymap` and `keymap.zmk` operating-system toggle were output-level edits (not canonical-source edits).
-  - `scripts/gh-build-and-fetch.sh` is a direct source addition (canonical script source).
-- `22e685c040c684d41531f881f973df6c96191940`
-  - Cursor arrow swap was made only in `config/glove80.keymap` (output-level edit, not canonical-source edit).
+Render flow:
+1. Upload `README/*-layer-diagram.json` to KLE.
+2. Export/screenshot to `README/*-layer-diagram.png`.
+3. Run `rake pdf` to generate per-layer PDFs and `README/all-layer-diagrams.pdf`.
 
-### Canonical backports applied
+Important:
+- `rake` does not regenerate diagram JSON.
+- `rake pdf` only converts existing PNGs to PDFs and combines them.
 
-- `ddba918...` backported to canonical sources by setting top-level default OS to macOS in:
-  - `keymap.dtsi.erb`
-  - `keymap.json` (`custom_defined_behaviors`)
-- `22e685c...` backported to canonical source by swapping Cursor layer arrows to `LEFT, DOWN, UP, RIGHT` in:
-  - `keymap.json` (layer `Cursor`)
-
-## Regeneration (phase 1)
+## Regeneration commands
 
 From `glove80-keymaps/`:
 
 ```bash
-rake dtsi
+/opt/homebrew/opt/ruby/bin/rake dtsi
 ```
 
-Or full regeneration:
+Full pipeline:
 
 ```bash
-rake
+/opt/homebrew/opt/ruby/bin/rake
 ```
+
+## Key-change checklist (recommended)
+
+When changing key assignments:
+1. Edit `keymap.json` at the target layer/positions.
+2. Regenerate outputs (`rake` or `rake dtsi`).
+3. update matching `README/*-layer-diagram.json`.
+4. Verify `config/glove80.keymap` matches intended behavior.
+
+## Historical backport notes
+
+These commits were originally output-level changes and were backported to canonical sources:
+- `ddba918eb35b84ebd6de34fca702fab2e20a836a` (OS default and script changes)
+- `22e685c040c684d41531f881f973df6c96191940` (cursor arrow order)
+- `3e054fbedb575cc5eb8317f2d6f7b66d7587a490` (Symbol swaps)
+- `e3106daaa3d59e4e7e3dc38f45f782cdd87f4f20` (C1 F16-F19 moved to Number layer)
