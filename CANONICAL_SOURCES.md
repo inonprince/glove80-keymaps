@@ -45,6 +45,10 @@ Derived/downstream files:
 
 Do not treat these as canonical for key-placement edits unless you intentionally need an output-only hotfix.
 
+Build note:
+- `nix-build config` (including GitHub Actions builds) consumes `config/glove80.keymap` directly.
+- `keymap.json` is canonical for editing, but it is **not** read directly by the firmware build.
+
 ## Diagram sources (separate from keymap generation)
 
 Layer diagrams are maintained separately and are **not** auto-generated from `keymap.json`.
@@ -75,18 +79,25 @@ Full pipeline:
 /opt/homebrew/opt/ruby/bin/rake
 ```
 
+Important:
+- `rake`/`rake dtsi` regenerate `keymap.dtsi` (and `*.min`) from canonical sources.
+- They do **not** regenerate `config/glove80.keymap`.
+- To sync `config/glove80.keymap` from current canonical sources, run:
+  `python3 scripts/sync_keymap_outputs.py --write`
+
 ## Key-change checklist (recommended)
 
 When changing key assignments:
 1. Edit `keymap.json` at the target layer/positions.
-2. Regenerate outputs (`rake` or `rake dtsi`).
-3. update matching `README/*-layer-diagram.json`.
-4. Verify `config/glove80.keymap` matches intended behavior.
+2. Regenerate DTS outputs (`rake` or `rake dtsi`).
+3. Sync `config/glove80.keymap` to match the key change before any firmware build.
+4. Update matching `README/*-layer-diagram.json`.
+5. Verify `keymap.dtsi` and `config/glove80.keymap` both match intended behavior.
 
 ## Historical backport notes
 
 These commits were originally output-level changes and were backported to canonical sources:
 - `ddba918eb35b84ebd6de34fca702fab2e20a836a` (OS default and script changes)
 - `22e685c040c684d41531f881f973df6c96191940` (cursor arrow order)
-- `3e054fbedb575cc5eb8317f2d6f7b66d7587a490` (Symbol swaps)
+- `3e054fbedb575cc5eb8317f2d6f7b66d7587a490` (Symbol layer 2 key pairs swaps)
 - `e3106daaa3d59e4e7e3dc38f45f782cdd87f4f20` (C1 F16-F19 moved to Number layer)
